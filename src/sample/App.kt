@@ -10,17 +10,19 @@ import sample.field.FieldView
 class App : Application() {
 
     private lateinit var root: AnchorPane
-    private val fieldView = FieldView()
+    private val playerFieldView = FieldView()
+    private val opponentFieldView = FieldView()
 
     override fun start(primaryStage: Stage) {
         initialize(primaryStage)
 
-        fieldView.render(root, 0, 0)
-        fieldView.render(root, 440, 0)
+        playerFieldView.render(root, 0, 0)
+        opponentFieldView.render(root, 450, 0)
     }
 
     private fun onClick(x: Int, y: Int) {
-        fieldView.onClick(x, y)
+        playerFieldView.onClick(x, y)
+        opponentFieldView.onClick(x, y)
     }
 
     private fun initialize(primaryStage: Stage) {
