@@ -10,7 +10,7 @@ import sample.field.field_item.Water
 import sample.field.field_item.WoundShip
 import sample.util.FieldUtil
 
-class FieldView {
+class FieldView(val state: FieldState) {
 
     private val presenter = FieldPresenter(this)
     private lateinit var canvas: AnchorPane
@@ -26,7 +26,14 @@ class FieldView {
     }
 
     fun onClick(x: Int, y: Int) {
-        presenter.shot(FieldUtil.coordinationToPosition(x - this.x, y - this.y))
+        when (state) {
+            FieldState.CONSTRUCTOR -> {
+                presenter.constructor(FieldUtil.coordinationToPosition(x - this.x, y - this.y))
+            }
+            FieldState.BATTLE -> {
+                presenter.shot(FieldUtil.coordinationToPosition(x - this.x, y - this.y))
+            }
+        }
     }
 
     fun drawField(field: Field) {
