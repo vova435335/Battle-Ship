@@ -47,6 +47,7 @@ class FieldView {
                 8.0,
                 8.0
         )
+
         canvas.children.add(rectangle)
     }
 

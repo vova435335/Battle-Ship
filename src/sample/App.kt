@@ -12,12 +12,14 @@ class App : Application() {
     private lateinit var root: AnchorPane
     private val playerFieldView = FieldView()
     private val opponentFieldView = FieldView()
+    private val canvas = AnchorPane()
 
     override fun start(primaryStage: Stage) {
         initialize(primaryStage)
 
-        playerFieldView.render(root, 0, 0)
-        opponentFieldView.render(root, 450, 0)
+        playerFieldView.render(canvas, 0, 0)
+        opponentFieldView.render(canvas, 450, 0)
+        root.children.add(canvas)
     }
 
     private fun onClick(x: Int, y: Int) {
