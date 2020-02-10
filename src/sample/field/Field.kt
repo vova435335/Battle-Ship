@@ -1,5 +1,6 @@
-package sample
+package sample.field
 
+import sample.Position
 import sample.field.field_item.FieldItem
 import sample.field.field_item.Water
 import sample.util.FieldUtil.ITEM_INLINE_COUNT

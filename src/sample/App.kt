@@ -15,7 +15,8 @@ class App : Application() {
     override fun start(primaryStage: Stage) {
         initialize(primaryStage)
 
-        fieldView.render(root)
+        fieldView.render(root, 0, 0)
+        fieldView.render(root, 440, 0)
     }
 
     private fun onClick(x: Int, y: Int) {
