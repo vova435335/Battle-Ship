@@ -6,36 +6,24 @@ import javafx.scene.input.MouseEvent
 import javafx.scene.layout.AnchorPane
 import javafx.stage.Stage
 import sample.field.FieldView
+import sample.screens.constructor.ConstructorScreen
 
 class App : Application() {
 
     private lateinit var root: AnchorPane
-    private val playerFieldView = FieldView()
-    private val opponentFieldView = FieldView()
-    private val canvas = AnchorPane()
+    private val constructorScreen = ConstructorScreen()
 
     override fun start(primaryStage: Stage) {
         initialize(primaryStage)
 
-        playerFieldView.render(canvas, 0, 0)
-        opponentFieldView.render(canvas, 450, 0)
-        root.children.add(canvas)
-    }
-
-    private fun onClick(x: Int, y: Int) {
-        playerFieldView.onClick(x, y)
-        opponentFieldView.onClick(x, y)
+        root.children.add(constructorScreen)
     }
 
     private fun initialize(primaryStage: Stage) {
         root = AnchorPane()
-        primaryStage.title = "Hello World"
+        primaryStage.title = "Battle Ship"
         primaryStage.scene = Scene(root, 1000.0, 1000.0)
         primaryStage.show()
-
-        root.addEventFilter(MouseEvent.MOUSE_PRESSED) { event ->
-            onClick(event.x.toInt(), event.y.toInt())
-        }
     }
 }
 
