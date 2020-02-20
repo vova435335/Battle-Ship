@@ -12,7 +12,6 @@ class FieldView(var state: FieldState) {
 
     private val presenter = FieldPresenter(this)
     private lateinit var canvas: AnchorPane
-    private val fieldItem = Ship()
     private var x: Int = 0
     private var y: Int = 0
 
