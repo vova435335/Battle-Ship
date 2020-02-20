@@ -4,16 +4,15 @@ import javafx.scene.layout.AnchorPane
 import javafx.scene.paint.Color
 import javafx.scene.shape.Line
 import javafx.scene.shape.Rectangle
-import sample.field.field_item.Miss
-import sample.field.field_item.Ship
-import sample.field.field_item.Water
-import sample.field.field_item.WoundShip
+import sample.Position
+import sample.field.field_item.*
 import sample.util.FieldUtil
 
-class FieldView(val state: FieldState) {
+class FieldView(var state: FieldState) {
 
     private val presenter = FieldPresenter(this)
     private lateinit var canvas: AnchorPane
+    private val fieldItem = Ship()
     private var x: Int = 0
     private var y: Int = 0
 
@@ -45,6 +44,10 @@ class FieldView(val state: FieldState) {
                 is Water -> drawWater(key)
             }
         }
+    }
+
+    fun setShips():Int{
+        return presenter.setItems()
     }
 
     private fun drawMiss(position: sample.Position) {
@@ -107,4 +110,6 @@ class FieldView(val state: FieldState) {
             canvas.children.add(lineVertical)
         }
     }
+
+
 }

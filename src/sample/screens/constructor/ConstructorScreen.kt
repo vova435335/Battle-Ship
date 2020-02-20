@@ -2,8 +2,8 @@ package sample.screens.constructor
 
 import javafx.scene.input.MouseEvent
 import javafx.scene.layout.AnchorPane
-import sample.field.FieldState
-import sample.field.FieldView
+import sample.field.*
+import sample.util.FieldUtil
 
 class ConstructorScreen : AnchorPane() {
 
@@ -14,6 +14,9 @@ class ConstructorScreen : AnchorPane() {
 
         addEventFilter(MouseEvent.MOUSE_PRESSED) { event ->
             playerFieldView.onClick(event.x.toInt(), event.y.toInt())
+            if(playerFieldView.setShips() >= FieldUtil.START_SHIPS_COUNT){
+                playerFieldView.state = FieldState.BATTLE
+            }
         }
     }
 
